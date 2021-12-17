@@ -29,11 +29,13 @@ void Scanner::on_scanButton_clicked()
         socket->connectToHost(m_hostnameString,p);
         if(!socket->waitForConnected(1000))
         {
+            this->resultText->setTextColor(QColor("red"));
             resultText->append("port: " + QString::number(p) + " not connected");
         }
         else
         {
             socket->disconnectFromHost();
+            this->resultText->setTextColor(QColor("green"));
             resultText->append("port: " + QString::number(p) + " connected");
         }
         resultText->show();
