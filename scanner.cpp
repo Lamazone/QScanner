@@ -25,6 +25,7 @@ void Scanner::on_scanButton_clicked()
 
     for(auto p : m_ports)
     {
+
         socket->connectToHost(m_hostnameString,p);
         if(!socket->waitForConnected(1000))
         {
